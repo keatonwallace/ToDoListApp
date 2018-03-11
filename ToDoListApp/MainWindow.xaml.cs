@@ -24,5 +24,24 @@ namespace ToDoListApp
         {
             InitializeComponent();
         }
+
+        private void CreateButtonClick(object sender, RoutedEventArgs e)
+        {
+            if (InputBox.Text != String.Empty)
+            {
+                TodoListBox.Items.Add(InputBox.Text);
+            }
+        }
+
+        private void DeleteButtonClick(object sender, RoutedEventArgs e)
+        {
+            TodoListBox.Items.Remove(TodoListBox.SelectedItem);
+        }
+
+        private void EditButtonClick(object sender, RoutedEventArgs e)
+        {
+            //Don't know what to do here yet
+            //change create to update?
+        }
     }
 }

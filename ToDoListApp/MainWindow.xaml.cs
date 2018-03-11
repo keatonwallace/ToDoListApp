@@ -30,6 +30,7 @@ namespace ToDoListApp
             if (InputBox.Text != String.Empty)
             {
                 TodoListBox.Items.Add(InputBox.Text);
+                InputBox.Text = String.Empty;
             }
         }
 
@@ -40,8 +41,23 @@ namespace ToDoListApp
 
         private void EditButtonClick(object sender, RoutedEventArgs e)
         {
-            //Don't know what to do here yet
-            //change create to update?
+            if (TodoListBox.SelectedItem != null) {
+                CreateButton.Click -= CreateButtonClick;
+                CreateButton.Click += UpdateButtonClick;
+                CreateButton.Content = "Update";
+                InputBox.Text = TodoListBox.SelectedItem.ToString();
+            }
+        }
+
+        private void UpdateButtonClick(object sender, RoutedEventArgs e)
+        {
+            int index = TodoListBox.SelectedIndex;
+            TodoListBox.Items.RemoveAt(index);
+            TodoListBox.Items.Insert(index, InputBox.Text);
+            CreateButton.Click -= UpdateButtonClick;
+            CreateButton.Click += CreateButtonClick;
+            CreateButton.Content = "Create";
+            InputBox.Text = String.Empty;
         }
     }
 }

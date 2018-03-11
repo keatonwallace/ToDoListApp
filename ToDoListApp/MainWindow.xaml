@@ -8,7 +8,7 @@
         Title="MainWindow" Height="350" Width="525">
     <Grid>
         <ListBox x:Name="TodoListBox" HorizontalAlignment="Left" Height="273" Margin="10,10,0,0" VerticalAlignment="Top" Width="365"/>
-        <TextBox x:Name="InputBox" HorizontalAlignment="Left" Height="21" Margin="10,288,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="365" Cursor="None"/>
+        <TextBox x:Name="InputBox" HorizontalAlignment="Left" Height="21" Margin="10,288,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="365" Cursor="IBeam"/>
         <Button x:Name="CreateButton" Content="Create" HorizontalAlignment="Left" Margin="387,287,0,0" VerticalAlignment="Top" Width="75" Click="CreateButtonClick"/>
         <Button x:Name="CompleteButton" Content="Complete" HorizontalAlignment="Left" Margin="387,10,0,0" VerticalAlignment="Top" Width="75"/>
         <Button x:Name="EditButton" Content="Edit" HorizontalAlignment="Left" Margin="387,35,0,0" VerticalAlignment="Top" Width="75" Click="EditButtonClick"/>

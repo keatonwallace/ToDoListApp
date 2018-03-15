@@ -8,5 +8,12 @@ namespace ToDoListApp
 {
     class ToDoList
     {
+
+    }
+
+    [Serializable]
+    public class ToDoItem
+    {
+
     }
 }

@@ -20,6 +20,7 @@ namespace ToDoListApp
     /// </summary>
     public partial class MainWindow : Window
     {
+        int selectedItemIndex;
         public MainWindow()
         {
             InitializeComponent();
@@ -46,18 +47,23 @@ namespace ToDoListApp
                 CreateButton.Click += UpdateButtonClick;
                 CreateButton.Content = "Update";
                 InputBox.Text = TodoListBox.SelectedItem.ToString();
+                selectedItemIndex = TodoListBox.SelectedIndex;
             }
         }
 
         private void UpdateButtonClick(object sender, RoutedEventArgs e)
         {
             int index = TodoListBox.SelectedIndex;
-            TodoListBox.Items.RemoveAt(index);
-            TodoListBox.Items.Insert(index, InputBox.Text);
-            CreateButton.Click -= UpdateButtonClick;
-            CreateButton.Click += CreateButtonClick;
-            CreateButton.Content = "Create";
-            InputBox.Text = String.Empty;
+            if (index == selectedItemIndex)
+            {
+                TodoListBox.Items.RemoveAt(index);
+                TodoListBox.Items.Insert(index, InputBox.Text);
+                CreateButton.Click -= UpdateButtonClick;
+                CreateButton.Click += CreateButtonClick;
+                CreateButton.Content = "Create";
+                InputBox.Text = String.Empty;
+            }
         }
+
     }
 }
